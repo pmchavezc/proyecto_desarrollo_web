@@ -1,0 +1,7 @@
+.dash{padding:24px 16px}
+.dash__head{display:flex;justify-content:space-between;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+.curso{padding:12px;border-radius:16px}
+.err{background:#fee2e2;color:#b91c1c;padding:10px;border-radius:12px;margin-bottom:10px}
+
+.ok{background:#e6fffa;color:#065f46;padding:10px;border-radius:12px;margin-bottom:10px}

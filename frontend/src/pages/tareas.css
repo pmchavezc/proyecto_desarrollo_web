@@ -1,0 +1,7 @@
+.tareas{padding:24px 16px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+.tarea{padding:12px;border-radius:16px}
+.entrega{display:flex;gap:8px;margin-top:8px}
+.entrega input{flex:1;padding:10px;border-radius:12px;border:1px solid var(--card-bd);background:var(--surface);color:var(--fg)}
+
+.ok{background:#e6fffa;color:#065f46;padding:10px;border-radius:12px;margin-bottom:10px}

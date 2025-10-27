@@ -1,0 +1,23 @@
+.hero{padding:64px 16px;text-align:center;background:linear-gradient(180deg, rgba(59,130,246,.1), transparent)}
+.hero h1{margin:0 0 8px 0;font-size:40px}
+.hero p{margin:0;color:var(--muted)}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:24px 16px}
+.mv__box{padding:16px}
+.conocenos{padding:24px 16px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{overflow:hidden}
+.card img{display:block;width:100%;height:180px;object-fit:cover}
+.card h3{margin:12px 12px 4px}
+.card p{margin:0 12px 16px;color:var(--muted)}
+.contacto{padding:24px 16px;display:flex;flex-direction:column;align-items:center}
+.contact-card{width:100%;max-width:560px;padding:18px}
+.contacto h2{width:100%;max-width:560px;margin-left:4px}
+.contacto .row{display:flex;flex-direction:column;margin-bottom:12px}
+.contacto label{font-size:13px;margin-bottom:6px;opacity:.85}
+.contacto input,.contacto textarea{padding:10px 12px;border-radius:12px;min-height:36px}
+.contacto textarea{min-height:96px;resize:vertical}
+.contacto button{padding:10px 16px;border:0;border-radius:12px}
+.contacto .ok{background:#e6fffa;color:#065f46;padding:10px;border-radius:12px;margin-bottom:10px}
+.contacto .err{background:#fee2e2;color:#b91c1c;padding:10px;border-radius:12px;margin-bottom:10px}
+
+.mv__box img{display:block;width:100%;height:220px;object-fit:contain;background:#fff}
