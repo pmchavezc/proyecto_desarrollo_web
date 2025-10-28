@@ -1,9 +1,18 @@
 package com.futureacademy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-/** Aplicación principal de Spring Boot. */
 @SpringBootApplication
-public class FutureAcademyApplication {
-  public static void main(String[] args){ SpringApplication.run(FutureAcademyApplication.class, args); }
+public class FutureAcademyApplication extends SpringBootServletInitializer {
+
+  @Override
+  protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+    return builder.sources(FutureAcademyApplication.class);
+  }
+
+  public static void main(String[] args) {
+    SpringApplication.run(FutureAcademyApplication.class, args);
+  }
 }
