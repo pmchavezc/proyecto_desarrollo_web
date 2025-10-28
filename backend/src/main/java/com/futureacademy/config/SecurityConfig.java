@@ -32,36 +32,50 @@ public class SecurityConfig {
       Optional<Usuario> opt = usuarioRepository.findByEmail(username);
       Usuario u = opt.orElseThrow(() -> new RuntimeException("Usuario no encontrado: " + username));
       return User.withUsername(u.getEmail())
-          .password(u.getPasswordHash())
-          .roles(u.getRol())
-          .build();
+              .password(u.getPasswordHash())
+              .roles(u.getRol())
+              .build();
     };
   }
 
-  @Bean public PasswordEncoder passwordEncoder(){ return new BCryptPasswordEncoder(); }
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
   @Bean
   public DaoAuthenticationProvider authenticationProvider(UserDetailsService uds, PasswordEncoder encoder) {
     DaoAuthenticationProvider p = new DaoAuthenticationProvider();
-    p.setUserDetailsService(uds); p.setPasswordEncoder(encoder);
+    p.setUserDetailsService(uds);
+    p.setPasswordEncoder(encoder);
     return p;
   }
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/", "/index.html", "/assets/**", "/favicon.ico").permitAll()
-            .requestMatchers(HttpMethod.POST, "/api/contactos").permitAll()
-            .requestMatchers("/api/**").authenticated()
-            .anyRequest().permitAll())
-        .cors(cors -> {})
-        .httpBasic(httpBasic -> {})
-        // Evita que el navegador muestre el popup de BasicAuth
-        .exceptionHandling(ex -> ex.authenticationEntryPoint((req, res, e) -> {
-            // 401 sin cabecera WWW-Authenticate => NO popup
-            res.setStatus(401);
-        }));
+            .authorizeHttpRequests(auth -> auth
+                    // estáticos ya permitidos
+                    .requestMatchers("/", "/index.html", "/assets/**", "/favicon.ico").permitAll()
+
+                    // 👇 Rutas del ReactAppController (SPA) — permitidas
+                    .requestMatchers("/", "/login", "/dashboard", "/mis-tareas", "/tareas").permitAll()
+                    // Nota: "/#contacto" no es necesario; el fragmento (#) no llega al servidor.
+
+                    // público de la landing
+                    .requestMatchers(HttpMethod.POST, "/api/contactos").permitAll()
+
+                    // API protegida
+                    .requestMatchers("/api/**").authenticated()
+
+                    // el resto
+                    .anyRequest().permitAll()
+            )
+            .cors(cors -> {
+            })
+            .httpBasic(httpBasic -> {
+            })
+            .exceptionHandling(ex -> ex.authenticationEntryPoint((req, res, e) -> res.setStatus(401)));
     return http.build();
   }
 }
