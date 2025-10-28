@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import './home.css'
+import '../styles/home.css'
 import api from '../api/api'
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
       <section id="misionvision" className="mv">
         {/* Tarjetas de Misión y Visión con imagen responsive (object-fit:contain) */}
         <div className="mv__box card">
-          <img src="/src/assets/mision.jpg" alt="Misión" />
+          <img src="/img/mision.jpg" alt="Misión" />
           <h2>Misión</h2>
           <p><h3>En Future Academy educamos de forma integral y con excelencia académica,
             potenciando los talentos de cada estudiante mediante metodologías activas,
@@ -42,7 +42,7 @@ export default function Home() {
             </p>
         </div>
         <div className="mv__box card">
-          <img src="/src/assets/vision.jpg" alt="Visión" />
+          <img src="/img/vision.jpg" alt="Visión" />
           <h2>Visión</h2>
           <p><h3>Ser una comunidad educativa referente en la región que inspira a cada estudiante a convertirse en una persona íntegra,
             curiosa y solidaria, capaz de pensar críticamente, comunicar con empatía y resolver problemas reales con creatividad.
@@ -59,17 +59,17 @@ export default function Home() {
         <h2>Conócenos</h2>
         <div className="cards">
           <article className="mv__box card">
-            <img src="/src/assets/conocenos1.jpg" alt="Conócenos 1" />
+            <img src="/img/conocenos1.jpg" alt="Conócenos 1" />
             <h3>Metodologías activas</h3>
             <p><h3>Aprendizaje basado en proyectos.</h3></p>
           </article>
           <article className="mv__box card">
-            <img src="/src/assets/conocenos2.jpg" alt="Conócenos 2" />
+            <img src="/img/conocenos2.jpg" alt="Conócenos 2" />
             <h3>Docentes capacitados</h3>
             <p><h3>Equipo con experiencia y compromiso.</h3></p>
           </article>
           <article className="mv__box card">
-            <img src="/src/assets/conocenos3.jpg" alt="Conócenos 3" />
+            <img src="/img/conocenos3.jpg" alt="Conócenos 3" />
             <h3>Ambiente seguro</h3>
             <p><h3>Espacios saludables y acompañamiento.</h3></p>
           </article>

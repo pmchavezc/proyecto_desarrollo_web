@@ -26,7 +26,6 @@ export default function Header() {
         <Link to="/login"><h2>Login</h2></Link>
         {/* Enlaces visibles solo si hay sesión */}
         {localStorage.getItem('fa_basic') ? <>
-            <button className="btn" onClick={()=>{localStorage.removeItem('fa_basic'); window.location.href='/'}}>Cerrar sesión</button>
         </> : null}
     
       </nav>

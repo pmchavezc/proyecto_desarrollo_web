@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Header from '../components/Header'
+import HeaderLogin from '../components/HeaderLogin'
 import Footer from '../components/Footer'
-import './login.css'
+import '../styles/login.css'
 import api from '../api/api'
 
 export default function Login() {
@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
     <div className="page">
-      <Header />
+      <HeaderLogin />
       <section className="login">
         <h1>Iniciar sesión</h1>
         {error ? <div className="err">{error}</div> : null}

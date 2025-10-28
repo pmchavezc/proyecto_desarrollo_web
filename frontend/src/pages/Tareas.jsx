@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import HeaderAuth from '../components/HeaderAuth'
 import Footer from '../components/Footer'
-import './tareas.css'
+import '../styles/tareas.css'
 import api from '../api/api'
 import {Link} from "react-router-dom";
 
