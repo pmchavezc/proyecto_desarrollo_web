@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios' // ✅ limpiar header Authorization
+import axios from 'axios' //  limpiar header Authorization
 
 export default function HeaderAuth() {
     const [open, setOpen] = useState(false)
@@ -11,7 +11,7 @@ export default function HeaderAuth() {
         localStorage.setItem('fa_theme', theme)
     }, [theme])
 
-    // ✅ logout a prueba de balas: limpia credenciales y hace hard redirect
+    //  limpia credenciales y hace hard redirect
     const logout = (e) => {
         e?.preventDefault?.()
         e?.stopPropagation?.() // evita que el onClick del <nav> interfiera
@@ -43,7 +43,7 @@ export default function HeaderAuth() {
             <nav className={open ? 'header__nav header__nav--open' : 'header__nav'} onClick={() => setOpen(false)}>
                 <Link to="/mis-tareas">Mis tareas</Link>
                 <Link to="/tareas">Tareas Pendientes</Link>
-                {/* ✅ importante: type="button" por si algún día esto cae dentro de un <form> */}
+                {/* importante: type="button" por si algún día esto cae dentro de un <form> */}
                 <button type="button" className="btn" onClick={logout}>Cerrar sesión</button>
             </nav>
         </header>

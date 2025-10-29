@@ -24,7 +24,7 @@ export default function Home() {
         <p>Formando estudiantes con propósito.</p>
       </section>
       <section id="misionvision" className="mv">
-        {/* Tarjetas de Misión y Visión con imagen responsive (object-fit:contain) */}
+        {/* Tarjetas de Misión y Visión con imagen */}
         <div className="mv__box card">
           <img src="/img/mision.jpg" alt="Misión" />
           <h2>Misión</h2>

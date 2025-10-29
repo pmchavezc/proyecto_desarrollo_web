@@ -1,17 +1,25 @@
 package com.futureacademy.controller;
 import com.futureacademy.domain.entity.*; import com.futureacademy.domain.service.*; import com.futureacademy.dto.EntregaRequest;
 import jakarta.validation.Valid; import org.springframework.security.core.Authentication; import org.springframework.web.bind.annotation.*; import java.util.List;
-/** Endpoints de tareas. */
+/* Endpoints de tareas. */
 @RestController @RequestMapping("/api/tareas")
 public class TareaController {
-  private final TareaService tareaService; private final EntregaService entregaService; private final UsuarioService usuarioService;
+  private final TareaService tareaService;
+  private final EntregaService entregaService;
+  private final UsuarioService usuarioService;
+
   public TareaController(TareaService t, EntregaService e, UsuarioService u){this.tareaService=t;this.entregaService=e;this.usuarioService=u;}
-  @GetMapping("/pendientes") public List<Tarea> pendientes(Authentication auth){
+
+  @GetMapping("/pendientes")
+  public List<Tarea> pendientes(Authentication auth){
     Usuario u = usuarioService.findByEmail(auth.getName()).orElseThrow();
     Estudiante e = usuarioService.findEstudianteByUsuario(u).orElseThrow(); return tareaService.tareasPendientes(e);
   }
-  @GetMapping("/{id}") public Tarea detalle(@PathVariable Long id){return tareaService.findById(id).orElseThrow();}
-  @PostMapping("/entregar") public void entregar(Authentication auth, @RequestBody @Valid EntregaRequest req){
+  @GetMapping("/{id}")
+  public Tarea detalle(@PathVariable Long id){return tareaService.findById(id).orElseThrow();}
+
+  @PostMapping("/entregar")
+  public void entregar(Authentication auth, @RequestBody @Valid EntregaRequest req){
     Usuario u = usuarioService.findByEmail(auth.getName()).orElseThrow();
     Estudiante e = usuarioService.findEstudianteByUsuario(u).orElseThrow();
     if (!req.enlace.startsWith("http://") && !req.enlace.startsWith("https://"))

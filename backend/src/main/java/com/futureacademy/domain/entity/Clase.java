@@ -1,6 +1,6 @@
 package com.futureacademy.domain.entity;
 import jakarta.persistence.*;
-/** Clase académica con maestro y estado 'activa'. */
+/* Clase académica con maestro y estado 'activa'. */
 @Entity @Table(name="clases")
 public class Clase {
   @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id;
